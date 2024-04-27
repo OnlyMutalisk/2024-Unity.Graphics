@@ -10,6 +10,7 @@ public class Gun : MonoBehaviour
     protected virtual int catridge { get; set; }
     protected virtual int catridge_max { get; set; }
     protected virtual int reloadTime { get; set; }
+    protected virtual float damage { get; set; }
     protected virtual float delay { get; set; }
     public GameObject bullet;
     public GameObject catridgeEffect;

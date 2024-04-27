@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Bullet
   - Ground
+  - Mob
   layers:
   - Default
   - TransparentFX

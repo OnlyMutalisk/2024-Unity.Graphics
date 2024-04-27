@@ -34,7 +34,7 @@ public class Spawner : MonoBehaviour
     public void Spawn()
     {
         System.Random rand = new System.Random();
-        int index = rand.Next(0, Mobs.Length - 1);
+        int index = rand.Next(0, Mobs.Length);
         GameObject Mob = Mobs[index];
 
         Instantiate<GameObject>(Mob, pos.position, pos.rotation);
