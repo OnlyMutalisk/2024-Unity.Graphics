@@ -5,6 +5,10 @@ using UnityEngine;
 
 public static class GameManager
 {
+    // 캐릭터 설정값입니다.
+    public static float speed_char = 10f;
+    public static float jumpPower_char = 10f;
+
     // 총알은 N 초 후 소멸합니다.
     public static int bulletLife = 100;
 
@@ -22,4 +26,11 @@ public static class GameManager
     public static int catridge_SR = 300;
     public static int catridge_max_SR = 10;
     public static int reloadTime_SR = 3;
+
+    // Spawner 설정값입니다.
+    public static float delay_spawner = 3f;
+    public static int population_limit = 3;
+
+    // Mob 설정값입니다.
+    public static float speed_mob = 10f;
 }

@@ -5,10 +5,10 @@ using static UnityEditor.PlayerSettings;
 
 public class SR : Gun
 {
-    public override int catridge { get; set; } = GameManager.catridge_SR;
-    public override int catridge_max { get; set; } = GameManager.catridge_max_SR;
-    public override int reloadTime { get; set; } = GameManager.reloadTime_SR;
-    public override float delay { get; set; } = GameManager.delay_SR;
+    protected override int catridge { get; set; } = GameManager.catridge_SR;
+    protected override int catridge_max { get; set; } = GameManager.catridge_max_SR;
+    protected override int reloadTime { get; set; } = GameManager.reloadTime_SR;
+    protected override float delay { get; set; } = GameManager.delay_SR;
 
     public void Update()
     {

@@ -7,10 +7,10 @@ using UnityEngine.UIElements;
 public class Gun : MonoBehaviour
 {
     public static string currentGun = "AR";
-    public virtual int catridge { get; set; }
-    public virtual int catridge_max { get; set; }
-    public virtual int reloadTime { get; set; }
-    public virtual float delay { get; set; }
+    protected virtual int catridge { get; set; }
+    protected virtual int catridge_max { get; set; }
+    protected virtual int reloadTime { get; set; }
+    protected virtual float delay { get; set; }
     public GameObject bullet;
     public GameObject catridgeEffect;
     public GameObject fireEffect;
@@ -18,6 +18,7 @@ public class Gun : MonoBehaviour
     protected bool isCorReloadOn;
     protected Transform pos;
 
+    // 생성 위치는 GameObject 와 같습니다.
     public void Start()
     {
         pos = gameObject.GetComponent<Transform>();
@@ -61,7 +62,6 @@ public class Gun : MonoBehaviour
     /// <summary>
     /// <br>탄창을 재충전합니다.</br>
     /// </summary>
-    /// 
     public IEnumerator CorReload()
     {
         isCorReloadOn = true;
