@@ -18,11 +18,13 @@ public class Gun : MonoBehaviour
     protected bool isCorShootOn;
     protected bool isCorReloadOn;
     protected Transform pos;
+    private AudioSource audioSource;
 
     // 생성 위치는 GameObject 와 같습니다.
     public void Start()
     {
         pos = gameObject.GetComponent<Transform>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     /// <summary>
@@ -31,8 +33,18 @@ public class Gun : MonoBehaviour
     /// </summary>
     public void Switch()
     {
-        if (Input.GetKey(KeyCode.Alpha1)) { currentGun = "AR"; }
-        else if (Input.GetKey(KeyCode.Alpha2)) { currentGun = "SR"; }
+        if (Input.GetKey(KeyCode.Alpha1) && currentGun != "AR")
+        {
+            audioSource.PlayOneShot(Resources.Load<AudioClip>("Sounds/Switch"));
+            currentGun = "AR";
+            audioSource.clip = Resources.Load<AudioClip>("Sounds/AR");
+        }
+        else if (Input.GetKey(KeyCode.Alpha2) && currentGun != "SR")
+        {
+            audioSource.PlayOneShot(Resources.Load<AudioClip>("Sounds/Switch"));
+            currentGun = "SR";
+            audioSource.clip = Resources.Load<AudioClip>("Sounds/SR");
+        }
     }
 
     /// <summary>
@@ -48,6 +60,7 @@ public class Gun : MonoBehaviour
             Instantiate<GameObject>(fireEffect, pos.position, pos.rotation);
 
             catridge--;
+            audioSource.Play();
 
             Debug.Log(currentGun + catridge);
         }
@@ -69,6 +82,7 @@ public class Gun : MonoBehaviour
         isCorReloadOn = true;
         isCorShootOn = true;
         Debug.Log("장전중..");
+        audioSource.PlayOneShot(Resources.Load<AudioClip>("Sounds/Reload"));
         yield return new WaitForSeconds(reloadTime);
         catridge = catridge_max;
         isCorReloadOn = false;

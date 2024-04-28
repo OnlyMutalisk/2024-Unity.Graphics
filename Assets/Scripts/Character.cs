@@ -4,15 +4,19 @@ using UnityEngine;
 
 public class Character : MonoBehaviour
 {
+    public GameObject deathPanel;
     public static float HP = GameManager.HP_char;
+    private bool isDeath = false;
 
     private void Update()
     {
-        if (HP <= 0) { Death(); }
+        if (HP <= 0 && isDeath == false) { Death(); }
     }
 
     private void Death()
     {
+        isDeath = true;
+        deathPanel.SetActive(true);
         UpdateHighScore();
     }
 

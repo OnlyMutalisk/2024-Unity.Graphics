@@ -84,6 +84,7 @@ public class Mob : MonoBehaviour
     {
         if (other.tag == "Bullet" && HP > 0)
         {
+            gameObject.GetComponent<AudioSource>().Play();
             anim.Play("Damaged");
 
             // 리플렉션으로 Gun.currentGun 의 데미지를 GameManager 에서 가져옵니다.
