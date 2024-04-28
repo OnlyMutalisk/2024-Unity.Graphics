@@ -9,7 +9,7 @@ public class Gun : MonoBehaviour
     public static string currentGun = "AR";
     protected virtual int catridge { get; set; }
     protected virtual int catridge_max { get; set; }
-    protected virtual int reloadTime { get; set; }
+    protected virtual float reloadTime { get; set; }
     protected virtual float damage { get; set; }
     protected virtual float delay { get; set; }
     public GameObject bullet;
@@ -27,6 +27,7 @@ public class Gun : MonoBehaviour
 
     /// <summary>
     /// <br>숫자키로 무기를 스위칭합니다.</br>
+    /// <br>장전중이라면, 취소시킵니다.</br>
     /// </summary>
     public void Switch()
     {
@@ -68,7 +69,7 @@ public class Gun : MonoBehaviour
         isCorReloadOn = true;
         isCorShootOn = true;
         Debug.Log("장전중..");
-        yield return new WaitForSeconds(delay);
+        yield return new WaitForSeconds(reloadTime);
         catridge = catridge_max;
         isCorReloadOn = false;
         isCorShootOn = false;

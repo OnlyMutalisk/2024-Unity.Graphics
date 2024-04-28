@@ -4,12 +4,14 @@ public class AR : Gun
 {
     protected override int catridge { get; set; } = GameManager.catridge_AR;
     protected override int catridge_max { get; set; } = GameManager.catridge_max_AR;
-    protected override int reloadTime { get; set; } = GameManager.reloadTime_AR;
+    protected override float reloadTime { get; set; } = GameManager.reloadTime_AR;
     protected override float damage { get; set; } = GameManager.damage_AR;
     protected override float delay { get; set; } = GameManager.delay_AR;
 
     public void Update()
     {
+        UI.catridge = catridge;
+
         if (currentGun == this.GetType().Name)
         {
             // 사격 감지
