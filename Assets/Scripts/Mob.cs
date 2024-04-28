@@ -17,6 +17,7 @@ public class Mob : MonoBehaviour
     protected virtual float damage { get; set; }
     protected virtual float animAttackLength { get; set; }
     protected virtual float animDeathLength { get; set; }
+    protected virtual int score { get; set; }
 
     private void Awake()
     {
@@ -47,9 +48,10 @@ public class Mob : MonoBehaviour
             {
                 anim.SetBool("isDeath", true);
                 nav.enabled = false;
+                Spawner.population_current--;
+                UI.score += score;
                 yield return new WaitForSeconds(animDeathLength);
                 Destroy(gameObject);
-                Spawner.population_current--;
             }
 
             // 몬스터 공격

@@ -18,16 +18,16 @@ public static class GameManager
 
     // AR 설정값입니다.
     public static float delay_AR = 0.2f;
-    public static int catridge_AR  = 300;
+    public static int catridge_AR  = 30;
     public static int catridge_max_AR = 30;
-    public static int reloadTime_AR = 3;
+    public static float reloadTime_AR = 3;
     public static float damage_AR = 1;
 
     // SR 설정값입니다.
     public static float delay_SR = 1.5f;
-    public static int catridge_SR = 300;
+    public static int catridge_SR = 10;
     public static int catridge_max_SR = 10;
-    public static int reloadTime_SR = 3;
+    public static float reloadTime_SR = 3;
     public static float damage_SR = 3;
 
     // Spawner 설정값입니다.
@@ -38,7 +38,8 @@ public static class GameManager
     public static float attackDistance_spider = 3f;
     public static float speed_spider = 2f;
     public static float HP_spider = 10;
-    public static float damage_spider = 1;
+    public static float damage_spider = 10;
+    public static int score_spider = 1;
     // 이동 관련 옵션은 프리팹의 NavMeshAgent 컴포넌트에서 설정합니다.
     // 공격 범위 옵션은 프리팹의 SphereCollider 컴포넌트의 Radius 로 조절합니다.
 }
