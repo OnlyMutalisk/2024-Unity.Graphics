@@ -42,8 +42,9 @@ public class Mob : MonoBehaviour
         {
             isCorOn = true;
             nav.enabled = true;
+            anim.SetBool("isNoPath", false);
 
-            // 몬스터 사망
+            // 몬스터 사망 (Death)
             if (HP <= 0)
             {
                 anim.SetBool("isDeath", true);
@@ -54,8 +55,8 @@ public class Mob : MonoBehaviour
                 Destroy(gameObject);
             }
 
-            // 몬스터 공격
-            if (nav.remainingDistance < attackDistance)
+            // 몬스터 공격 (Attack)
+            else if (nav.remainingDistance < attackDistance && nav.hasPath)
             {
                 anim.SetBool("isAttack", true);
 
@@ -67,10 +68,14 @@ public class Mob : MonoBehaviour
                     Debug.Log(Character.HP);
                 }
             }
-            // 몬스터 이동
-            else
+            // 몬스터 이동 (Walk)
+            else if (nav.hasPath)
             {
                 anim.SetBool("isAttack", false);
+            }
+            else
+            {
+                anim.SetBool("isNoPath", true);
             }
 
             isCorOn = false;
