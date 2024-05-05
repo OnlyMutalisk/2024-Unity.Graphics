@@ -19,6 +19,7 @@ public class Mob : MonoBehaviour
     protected virtual int score { get; set; }
     private AudioSource attackedSound;
     private AudioSource hitSound;
+    private bool isAlive = true;
 
     private void Awake()
     {
@@ -30,9 +31,11 @@ public class Mob : MonoBehaviour
         nav.speed = speed;
     }
 
+
     private void Update()
     {
-        nav.SetDestination(CharacterAnimation.trans.position);
+        if (isAlive)
+            nav.SetDestination(CharacterAnimation.trans.position);
         StartCoroutine(CorMobAction());
     }
 
@@ -51,6 +54,7 @@ public class Mob : MonoBehaviour
             // 몬스터 사망 (Death)
             if (HP <= 0)
             {
+                isAlive = false;
                 anim.SetBool("isDeath", true);
                 nav.enabled = false;
                 Spawner.population_current--;
@@ -94,7 +98,16 @@ public class Mob : MonoBehaviour
             FieldInfo fieldInfo = gameManagerType.GetField(fieldName, BindingFlags.Public | BindingFlags.Static);
             float damage_currentGun = (float)fieldInfo.GetValue(null);
 
-            HP = HP - damage_currentGun;
+            // 리플렉션으로 Gun.currentGun 의 거리 비례 데미지 손실 상수를 GameManager 에서 가져옵니다.
+            string fieldName2 = "damageLossPerDistance_" + Gun.currentGun;
+            Type gameManagerType2 = typeof(GameManager);
+            FieldInfo fieldInfo2 = gameManagerType2.GetField(fieldName2, BindingFlags.Public | BindingFlags.Static);
+            float damageLossPerDistance_currentGun = (float)fieldInfo2.GetValue(null);
+
+            // 거리에 따라 데미지를 감소시킨 후 적용합니다.
+            float distance = Vector3.Distance(this.transform.position, CharacterAnimation.trans.position);
+            HP = HP - (damage_currentGun / (1 + (distance * damageLossPerDistance_currentGun)));
+
             Debug.Log("Mob HP : " + HP);
         }
     }
@@ -118,7 +131,7 @@ public class Mob : MonoBehaviour
     /// <summary>
     /// <br>공격 애니메이션의 이벤트 메서드입니다.</br>
     /// </summary>
-    protected void Attack()
+    protected void AnimationEvent_Attack()
     {
         if (nav.remainingDistance < attackDistance)
         {
