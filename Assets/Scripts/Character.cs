@@ -5,8 +5,14 @@ using UnityEngine;
 public class Character : MonoBehaviour
 {
     public GameObject deathPanel;
-    public static float HP = GameManager.HP_char;
-    private bool isDeath = false;
+    public static float HP;
+    private bool isDeath;
+
+    private void Start()
+    {
+        isDeath = false;
+        HP = GameManager.HP_char;
+    }
 
     private void Update()
     {

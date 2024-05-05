@@ -6,7 +6,6 @@ public class CharController_Motor : MonoBehaviour
 {
 
     public float speed = GameManager.speed_char;
-    public float jumpPower = GameManager.jumpPower_char;
     public float sensitivity = 30.0f;
     public float WaterHeight = 15.5f;
     CharacterController character;

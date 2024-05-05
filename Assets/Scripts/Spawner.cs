@@ -10,12 +10,13 @@ public class Spawner : MonoBehaviour
     private bool isCorSpawnerOn = false;
     private float delay = GameManager.delay_spawner;
     private int population_limit = GameManager.population_limit;
-    public static int population_current = 0;
+    public static int population_current;
     private Transform pos;
 
     // 생성 위치는 GameObject 와 같습니다.
     public void Start()
     {
+        population_current = 0;
         pos = gameObject.GetComponent<Transform>();
     }
 

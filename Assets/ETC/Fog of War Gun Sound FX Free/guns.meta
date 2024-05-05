@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Assets/ETC/Fog of War Gun Sound FX Free/guns.meta
 guid: 023ac2fb31314d5478034eba8a861243
+=======
+guid: 9c09176f032ecf146a1803fdfbeb1c2f
+>>>>>>> 671756d3f9a69b83e9e7892f9165bb0f8088fe19:Assets/ETC/ADG_Textures/Demo.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

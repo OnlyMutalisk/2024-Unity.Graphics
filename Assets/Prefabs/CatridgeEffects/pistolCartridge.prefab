@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 114889192979825866}
   - component: {fileID: 114029136181915088}
   m_Layer: 0
-  m_Name: pistolCartridge
+  m_Name: PistolCartridge
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

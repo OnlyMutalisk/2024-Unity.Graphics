@@ -7,7 +7,8 @@ public static class GameManager
 {
     // 캐릭터 설정값입니다.
     public static float speed_char = 10f;
-    public static float jumpPower_char = 10f;
+    public static float jumpPower_char = 25f;
+    public static float jumpDelay_char = 3f;
     public static float HP_char = 100;
 
     // 총알은 N 초 후 소멸합니다.
@@ -25,14 +26,23 @@ public static class GameManager
 
     // SR 설정값입니다.
     public static float delay_SR = 1.5f;
-    public static int catridge_SR = 10;
-    public static int catridge_max_SR = 10;
+    public static int catridge_SR = 7;
+    public static int catridge_max_SR = 7;
     public static float reloadTime_SR = 2;
-    public static float damage_SR = 3;
+    public static float damage_SR = 5;
+    
+    // SG 설정값입니다.
+    public static float delay_SG = 0.8f;
+    public static int catridge_SG = 10;
+    public static int catridge_max_SG = 10;
+    public static float reloadTime_SG = 2;
+    public static float damage_SG = 0.05f;
+    public static int extraBullet_SG = 40; // 산탄 수
+    public static float fireAngle_SG = 40; // 산탄 각
 
     // Spawner 설정값입니다.
     public static float delay_spawner = 3f;
-    public static int population_limit = 3;
+    public static int population_limit = 20;
 
     // Spider 설정값입니다.
     public static float attackDistance_spider = 3f;
