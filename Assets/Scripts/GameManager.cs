@@ -47,6 +47,13 @@ public static class GameManager
     public static float HP_spider = 10;
     public static float damage_spider = 10;
     public static int score_spider = 1;
+
+    // Dog 설정값입니다.
+    public static float attackDistance_dog = 3f;
+    public static float speed_dog = 3f;
+    public static float HP_dog = 10;
+    public static float damage_dog = 10;
+    public static int score_dog = 2;
     // 이동 관련 옵션은 각 프리팹의 NavMeshAgent 컴포넌트에서 설정합니다.
     // 공격 범위 옵션은 각 프리팹의 SphereCollider 컴포넌트의 Radius 로 조절합니다.
 }

@@ -31,3 +31,12 @@
 10	Scripts/UI/UI 스크립트에서 이미지와 스프라이트를 public 으로 선언합니다.
 	ActiveGunImage 메서드에서 새 총기가 On 일 때 나머지 총기는 Off 되도록 코딩합니다.
 11	Hierarchy/UI.UI(Script) 에 총기 이미지 / On & Off 스프라이트를 연결합니다.
+
+[ 몬스터 추가 ]
+
+1	GameManager 에 몬스터 속성을 추가합니다.
+2	Scripts/Spider 를 복사하여 새 몬스터 스크립트를 생성한 후, 각 속성을 연결합니다.
+3	Resources/Prefabs/Mobs 에 몬스터 프리팹을 추가합니다.
+4	Animations/Spider 의 컨트롤러를 복사하여 같은 형식으로 애니메이션을 연결합니다.
+5	프리팹에 Spider 와 같은 형식으로 컴포넌트를 부착합니다.
+6	Hierarchy/Spawner 에 프리팹을 연결합니다.
