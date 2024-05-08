@@ -5,11 +5,19 @@ using UnityEngine;
 
 public static class GameManager
 {
+    #region Camera & Character
+
+    // 카메라 설정값입니다.
+    public static float sensitive = 100f; // 카메라 회전 민감도
+
     // 캐릭터 설정값입니다.
     public static float speed_char = 10f;
-    public static float jumpPower_char = 25f;
-    public static float jumpDelay_char = 3f;
+    public static float jumpPower_char = 6f; // 로그 스케일로 점프력이 강해집니다.
     public static float HP_char = 100;
+
+    #endregion
+
+    #region Guns
 
     // AR 설정값입니다.
     public static float delay_AR = 0.22f;
@@ -37,6 +45,13 @@ public static class GameManager
     public static int extraBullet_SG = 40; // 산탄 수
     public static float fireAngle_SG = 40; // 산탄 각
 
+    #endregion
+
+    #region Mobs
+
+    // 이동 관련 옵션은 각 프리팹의 NavMeshAgent 컴포넌트에서 설정합니다.
+    // 공격 범위 옵션은 각 프리팹의 SphereCollider 컴포넌트의 Radius 로 조절합니다.
+
     // Spawner 설정값입니다.
     public static float delay_spawner = 3f;
     public static int population_limit = 1;
@@ -54,6 +69,6 @@ public static class GameManager
     public static float HP_dog = 10;
     public static float damage_dog = 10;
     public static int score_dog = 2;
-    // 이동 관련 옵션은 각 프리팹의 NavMeshAgent 컴포넌트에서 설정합니다.
-    // 공격 범위 옵션은 각 프리팹의 SphereCollider 컴포넌트의 Radius 로 조절합니다.
+
+    #endregion
 }

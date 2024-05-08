@@ -35,7 +35,7 @@ public class Mob : MonoBehaviour
     private void Update()
     {
         if (isAlive)
-            nav.SetDestination(CharacterAnimation.trans.position);
+            nav.SetDestination(CharAnimation.trans.position);
         StartCoroutine(CorMobAction());
     }
 
@@ -64,7 +64,7 @@ public class Mob : MonoBehaviour
             }
 
             // 몬스터 공격 (Attack)
-            else if (nav.remainingDistance < attackDistance && nav.hasPath && Vector3.Distance(this.transform.position, CharacterAnimation.trans.position) < attackDistance)
+            else if (nav.remainingDistance < attackDistance && nav.hasPath && Vector3.Distance(this.transform.position, CharAnimation.trans.position) < attackDistance)
             {
                 anim.SetBool("isAttack", true);
             }
@@ -105,7 +105,7 @@ public class Mob : MonoBehaviour
             float damageLossPerDistance_currentGun = (float)fieldInfo2.GetValue(null);
 
             // 거리에 따라 데미지를 감소시킨 후 적용합니다.
-            float distance = Vector3.Distance(this.transform.position, CharacterAnimation.trans.position);
+            float distance = Vector3.Distance(this.transform.position, CharAnimation.trans.position);
             HP = HP - (damage_currentGun / (1 + (distance * damageLossPerDistance_currentGun)));
 
             Debug.Log("Mob HP : " + HP);
