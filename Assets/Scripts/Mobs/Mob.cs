@@ -67,6 +67,7 @@ public class Mob : MonoBehaviour
             else if (nav.remainingDistance < attackDistance && nav.hasPath && Vector3.Distance(this.transform.position, CharAnimation.trans.position) < attackDistance)
             {
                 anim.SetBool("isAttack", true);
+                transform.LookAt(CharAnimation.trans.position);
             }
             // 몬스터 이동 (Walk)
             else if (nav.hasPath)

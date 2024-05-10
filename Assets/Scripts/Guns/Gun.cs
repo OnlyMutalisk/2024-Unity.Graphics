@@ -17,6 +17,7 @@ public class Gun : MonoBehaviour
     public GameObject fireEffect;
     protected bool isCorShootOn;
     protected bool isCorReloadOn;
+    protected bool isCorSwitchOn;
     protected Transform pos;
     private AudioSource audioSource;
 
@@ -33,23 +34,26 @@ public class Gun : MonoBehaviour
     /// </summary>
     public void Switch()
     {
-        if (Input.GetKey(KeyCode.Alpha1) && currentGun != "AR")
+        if (isCorReloadOn == false && isCorShootOn == false)
         {
-            audioSource.PlayOneShot(Resources.Load<AudioClip>("Sounds/Switch"));
-            currentGun = "AR";
-            audioSource.clip = Resources.Load<AudioClip>("Sounds/AR");
-        }
-        else if (Input.GetKey(KeyCode.Alpha2) && currentGun != "SR")
-        {
-            audioSource.PlayOneShot(Resources.Load<AudioClip>("Sounds/Switch"));
-            currentGun = "SR";
-            audioSource.clip = Resources.Load<AudioClip>("Sounds/SR");
-        }
-        else if (Input.GetKey(KeyCode.Alpha3) && currentGun != "SG")
-        {
-            audioSource.PlayOneShot(Resources.Load<AudioClip>("Sounds/Switch"));
-            currentGun = "SG";
-            audioSource.clip = Resources.Load<AudioClip>("Sounds/SG");
+            if (Input.GetKey(KeyCode.Alpha1) && currentGun != "AR")
+            {
+                audioSource.PlayOneShot(Resources.Load<AudioClip>("Sounds/Switch"));
+                currentGun = "AR";
+                audioSource.clip = Resources.Load<AudioClip>("Sounds/AR");
+            }
+            else if (Input.GetKey(KeyCode.Alpha2) && currentGun != "SR")
+            {
+                audioSource.PlayOneShot(Resources.Load<AudioClip>("Sounds/Switch"));
+                currentGun = "SR";
+                audioSource.clip = Resources.Load<AudioClip>("Sounds/SR");
+            }
+            else if (Input.GetKey(KeyCode.Alpha3) && currentGun != "SG")
+            {
+                audioSource.PlayOneShot(Resources.Load<AudioClip>("Sounds/Switch"));
+                currentGun = "SG";
+                audioSource.clip = Resources.Load<AudioClip>("Sounds/SG");
+            }
         }
     }
 
