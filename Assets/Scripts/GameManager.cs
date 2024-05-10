@@ -5,12 +5,10 @@ using UnityEngine;
 
 public static class GameManager
 {
-    #region Camera & Character
-
-    // 카메라 설정값입니다.
-    public static float sensitive = 100f; // 카메라 회전 민감도
+    #region Character
 
     // 캐릭터 설정값입니다.
+    public static float sensitive = 100f; // 회전 민감도
     public static float speed_char = 10f;
     public static float jumpPower_char = 6f; // 로그 스케일로 점프력이 강해집니다.
     public static float HP_char = 100;
@@ -64,8 +62,8 @@ public static class GameManager
     public static int score_spider = 1;
 
     // Dog 설정값입니다.
-    public static float attackDistance_dog = 3f;
-    public static float speed_dog = 3f;
+    public static float attackDistance_dog = 7f;
+    public static float speed_dog = 10f;
     public static float HP_dog = 10;
     public static float damage_dog = 10;
     public static int score_dog = 2;
