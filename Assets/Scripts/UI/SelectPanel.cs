@@ -25,8 +25,9 @@ public class SelectPanel : MonoBehaviour
     /// <br>그에 따라 업그레이드 함수와 UI 를 선택합니다.</br>
     /// <br>즉, 스프라이트 이름과 함수 이름은 바뀌어선 안됩니다 !</br>
     /// </summary>
-    private void Start()
+    public void Init()
     {
+        Time.timeScale = 0;
         Sprite[] sprites = Resources.LoadAll<Sprite>("Images/Upgrade");
         Sprite sprite = sprites[Random.Range(0, sprites.Length)];
 
@@ -46,6 +47,7 @@ public class SelectPanel : MonoBehaviour
     public void Upgrade_AR_Damage()
     {
         ar.damage *= GameManager.Upgrade_AR_Damage_multiplier;
+        Time.timeScale = 1;
     }
 
     /// <summary>
@@ -54,6 +56,7 @@ public class SelectPanel : MonoBehaviour
     public void Upgrade_SR_Damage()
     {
         sr.damage *= GameManager.Upgrade_SR_Damage_multiplier;
+        Time.timeScale = 1;
     }
 
     /// <summary>
@@ -62,5 +65,33 @@ public class SelectPanel : MonoBehaviour
     public void Upgrade_SG_Damage()
     {
         sg.damage *= GameManager.Upgrade_SG_Damage_multiplier;
+        Time.timeScale = 1;
+    }
+    
+    /// <summary>
+    /// AR 의 탄창 수가 N 발 많아집니다.
+    /// </summary>
+    public void Upgrade_AR_Catridge()
+    {
+        ar.catridge_max += GameManager.Upgrade_AR_Catridge_add;
+        Time.timeScale = 1;
+    }
+
+    /// <summary>
+    /// AR 의 탄창 수가 N 발 많아집니다.
+    /// </summary>
+    public void Upgrade_SR_Catridge()
+    {
+        sr.catridge_max += GameManager.Upgrade_SR_Catridge_add;
+        Time.timeScale = 1;
+    }
+
+    /// <summary>
+    /// AR 의 탄창 수가 N 발 많아집니다.
+    /// </summary>
+    public void Upgrade_SG_Catridge()
+    {
+        sg.catridge_max += GameManager.Upgrade_SG_Catridge_add;
+        Time.timeScale = 1;
     }
 }

@@ -10,6 +10,8 @@ using UnityEngine.UI;
 public class UI : MonoBehaviour
 {
     public Slider HP;
+    public Slider EXP;
+    public TextMeshProUGUI level;
     public TextMeshProUGUI textCatridge;
     public TextMeshProUGUI textScore;
     public TextMeshProUGUI textHighScore;
@@ -44,6 +46,8 @@ public class UI : MonoBehaviour
         textScore.text = score.ToString();
         highScore = PlayerPrefs.GetInt("HighScore");
         textHighScore.text = "High Score : " + highScore.ToString();
+        level.text = "Level : " + (Character.level + 1).ToString();
+        EXP.value = Character.exp / GameManager.exp_max[Character.level];
         ActiveGunImage();
     }
 

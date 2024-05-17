@@ -1,23 +1,31 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Character : MonoBehaviour
 {
     public GameObject deathPanel;
+    public GameObject upgradePanel;
+    public SelectPanel[] selectPanels;
     private float HP_max;
     public static float HP;
+    public static int level = 0;
+    public static float exp = 0;
     private bool isDeath;
 
     private void Start()
     {
         isDeath = false;
         HP = GameManager.HP_char;
+        level = 0;
+        exp = 0;
     }
 
     private void Update()
     {
         if (HP <= 0 && isDeath == false) { Death(); }
+        if (exp >= GameManager.exp_max[level]) { LevelUp(); }
     }
 
     private void Death()
@@ -25,6 +33,17 @@ public class Character : MonoBehaviour
         isDeath = true;
         deathPanel.SetActive(true);
         UpdateHighScore();
+    }
+
+    private void LevelUp()
+    {
+        exp = 0;
+        level++;
+        upgradePanel.SetActive(true);
+        foreach (var selectPanel in selectPanels)
+        {
+            selectPanel.Init();
+        }
     }
 
     /// <summary>

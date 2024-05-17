@@ -8,6 +8,8 @@ using UnityEngine.UI;
 
 public static class GameManager
 {
+
+
     #region Character
 
     // 캐릭터 설정값입니다.
@@ -15,6 +17,15 @@ public static class GameManager
     public static float speed_char = 10f;
     public static float jumpPower_char = 6f; // 로그 스케일로 점프력이 강해집니다.
     public static float HP_char = 100;
+
+    // 레벨업 소요 경험치 입니다.
+    public static List<float> exp_max = new List<float>
+    {
+        10,
+        20,
+        30,
+        9999999999999
+    };
 
     #endregion
 
@@ -63,6 +74,7 @@ public static class GameManager
     public static float HP_spider = 10;
     public static float damage_spider = 10;
     public static int score_spider = 1;
+    public static int exp_spider = 1;
 
     // Dog 설정값입니다.
     public static float attackDistance_dog = 7f;
@@ -70,6 +82,7 @@ public static class GameManager
     public static float HP_dog = 10;
     public static float damage_dog = 10;
     public static int score_dog = 2;
+    public static int exp_dog = 2;
 
     #endregion
 
@@ -86,6 +99,18 @@ public static class GameManager
     public static string Upgrade_SG_Damage_text_head = "SG";
     public static string Upgrade_SG_Damage_text_body = "Damage 10% ++";
     public static float Upgrade_SG_Damage_multiplier = 1.1f;
+
+    public static string Upgrade_AR_Catridege_text_head = "AR";
+    public static string Upgrade_AR_Catridege_text_body = "Catridge + 3";
+    public static int Upgrade_AR_Catridge_add = 3;
+
+    public static string Upgrade_SR_Catridege_text_head = "SR";
+    public static string Upgrade_SR_Catridege_text_body = "Catridge + 1";
+    public static int Upgrade_SR_Catridge_add = 1;
+
+    public static string Upgrade_SG_Catridege_text_head = "SG";
+    public static string Upgrade_SG_Catridege_text_body = "Catridge + 2";
+    public static int Upgrade_SG_Catridge_add = 2;
 
     #endregion
 }

@@ -11,4 +11,5 @@ public class Dog : Mob
     protected override float HP { get; set; } = GameManager.HP_dog;
     protected override float damage { get; set; } = GameManager.damage_dog;
     protected override int score { get; set; } = GameManager.score_dog;
+    protected override int exp { get; set; } = GameManager.exp_dog;
 }

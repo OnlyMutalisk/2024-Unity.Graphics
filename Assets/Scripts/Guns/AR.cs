@@ -15,7 +15,7 @@ public class AR : Gun
             UI.catridge = catridge;
 
             // 사격 감지
-            if (Input.GetButton("Fire1") && isCorShootOn == false && catridge > 0)
+            if (Input.GetButton("Fire1") && isCorShootOn == false && isCorReloadOn == false && catridge > 0)
             {
                 StartCoroutine(CorShoot());
             }

@@ -16,7 +16,7 @@ public class SR : Gun
             UI.catridge = catridge;
 
             // 사격 감지, SR 은 추가 이펙트가 생성됩니다.
-            if (Input.GetButton("Fire1") && isCorShootOn == false && catridge > 0)
+            if (Input.GetButton("Fire1") && isCorShootOn == false && isCorReloadOn == false && catridge > 0)
             {
                 Instantiate<GameObject>(BulletEffect, pos.position, pos.rotation);
                 StartCoroutine(CorShoot());

@@ -17,6 +17,7 @@ public class Mob : MonoBehaviour
     protected virtual float HP { get; set; }
     protected virtual float damage { get; set; }
     protected virtual int score { get; set; }
+    protected virtual int exp { get; set; }
     private AudioSource attackedSound;
     private AudioSource hitSound;
     private bool isAlive = true;
@@ -59,6 +60,7 @@ public class Mob : MonoBehaviour
                 nav.enabled = false;
                 Spawner.population_current--;
                 UI.score += score;
+                Character.exp += this.exp;
                 yield return new WaitForSeconds(GetAnimationClipLength("Death") + 1);
                 Destroy(gameObject);
             }

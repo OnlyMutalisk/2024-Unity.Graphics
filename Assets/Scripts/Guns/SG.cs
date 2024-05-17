@@ -18,7 +18,7 @@ public class SG : Gun
             UI.catridge = catridge;
 
             // 사격 감지, SG 는 추가 총알이 격발됩니다.
-            if (Input.GetButton("Fire1") && isCorShootOn == false && catridge > 0)
+            if (Input.GetButton("Fire1") && isCorShootOn == false && isCorReloadOn == false && catridge > 0)
             {
                 for (float f = -fireAngle / 2; f <= fireAngle / 2; f += fireAngle / extraBullet)
                 {

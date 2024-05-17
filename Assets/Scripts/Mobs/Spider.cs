@@ -10,4 +10,5 @@ public class Spider : Mob
     protected override float HP { get; set; } = GameManager.HP_spider;
     protected override float damage { get; set; } = GameManager.damage_spider;
     protected override int score { get; set; } = GameManager.score_spider;
+    protected override int exp { get; set; } = GameManager.exp_spider;
 }
