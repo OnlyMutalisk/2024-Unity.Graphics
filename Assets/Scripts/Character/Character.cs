@@ -5,6 +5,7 @@ using UnityEngine;
 public class Character : MonoBehaviour
 {
     public GameObject deathPanel;
+    private float HP_max;
     public static float HP;
     private bool isDeath;
 

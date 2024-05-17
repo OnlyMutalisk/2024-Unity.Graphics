@@ -2,11 +2,11 @@ using UnityEngine;
 
 public class AR : Gun
 {
-    protected override int catridge { get; set; } = GameManager.catridge_AR;
-    protected override int catridge_max { get; set; } = GameManager.catridge_max_AR;
-    protected override float reloadTime { get; set; } = GameManager.reloadTime_AR;
-    protected override float damage { get; set; } = GameManager.damage_AR;
-    protected override float delay { get; set; } = GameManager.delay_AR;
+    public override int catridge { get; set; } = GameManager.catridge_AR;
+    public override int catridge_max { get; set; } = GameManager.catridge_max_AR;
+    public override float reloadTime { get; set; } = GameManager.reloadTime_AR;
+    public override float damage { get; set; } = GameManager.damage_AR;
+    public override float delay { get; set; } = GameManager.delay_AR;
 
     public void Update()
     {

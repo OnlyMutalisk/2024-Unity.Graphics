@@ -1,7 +1,10 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public static class GameManager
 {
@@ -19,7 +22,7 @@ public static class GameManager
 
     // AR 설정값입니다.
     public static float delay_AR = 0.22f;
-    public static int catridge_AR  = 30;
+    public static int catridge_AR = 30;
     public static int catridge_max_AR = 30;
     public static float reloadTime_AR = 2;
     public static float damage_AR = 1;
@@ -67,6 +70,22 @@ public static class GameManager
     public static float HP_dog = 10;
     public static float damage_dog = 10;
     public static int score_dog = 2;
+
+    #endregion
+
+    #region Upgrade
+
+    public static string Upgrade_AR_Damage_text_head = "AR";
+    public static string Upgrade_AR_Damage_text_body = "Damage 10% ++";
+    public static float Upgrade_AR_Damage_multiplier = 1.1f;
+    
+    public static string Upgrade_SR_Damage_text_head = "SR";
+    public static string Upgrade_SR_Damage_text_body = "Damage 10% ++";
+    public static float Upgrade_SR_Damage_multiplier = 1.1f;
+    
+    public static string Upgrade_SG_Damage_text_head = "SG";
+    public static string Upgrade_SG_Damage_text_body = "Damage 10% ++";
+    public static float Upgrade_SG_Damage_multiplier = 1.1f;
 
     #endregion
 }

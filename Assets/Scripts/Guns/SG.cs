@@ -2,11 +2,11 @@ using UnityEngine;
 
 public class SG : Gun
 {
-    protected override int catridge { get; set; } = GameManager.catridge_SG;
-    protected override int catridge_max { get; set; } = GameManager.catridge_max_SG;
-    protected override float reloadTime { get; set; } = GameManager.reloadTime_SG;
-    protected override float damage { get; set; } = GameManager.damage_SG;
-    protected override float delay { get; set; } = GameManager.delay_SG;
+    public override int catridge { get; set; } = GameManager.catridge_SG;
+    public override int catridge_max { get; set; } = GameManager.catridge_max_SG;
+    public override float reloadTime { get; set; } = GameManager.reloadTime_SG;
+    public override float damage { get; set; } = GameManager.damage_SG;
+    public override float delay { get; set; } = GameManager.delay_SG;
     private int extraBullet = GameManager.extraBullet_SG;
     private float fireAngle = GameManager.fireAngle_SG;
     public GameObject Bullet_SG;

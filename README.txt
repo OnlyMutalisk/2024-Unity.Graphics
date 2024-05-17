@@ -1,11 +1,3 @@
-[ Issue ]
-
-1	총기 변경해도 장전 계속됨
-	- 장전하는동안 다른 총기를 쓰게금 유도되는게 좋아서 냅둘생각
-2	몬스터 공격 시, 일정 각도만 데미지 입게끔 설정
-3	Mob 추가
-4	인게임 무기창 스크롤링
-
 [ AudioSource 위치 ]
 
 1	Mob 프리팹들
@@ -34,9 +26,17 @@
 
 [ 몬스터 추가 ]
 
-1	GameManager 에 몬스터 속성을 추가합니다.
+1	GameManager 스크립트에 몬스터 속성을 추가합니다.
 2	Scripts/Spider 를 복사하여 새 몬스터 스크립트를 생성한 후, 각 속성을 연결합니다.
 3	Resources/Prefabs/Mobs 에 몬스터 프리팹을 추가합니다.
 4	Animations/Spider 의 컨트롤러를 복사하여 같은 형식으로 애니메이션을 연결합니다.
 5	프리팹에 Spider 와 같은 형식으로 컴포넌트를 부착합니다.
 6	Hierarchy/Spawner 에 프리팹을 연결합니다.
+
+[ 업그레이드 추가 ]
+
+1	Resources/Images/Upgrade 폴더에 스프라이트를 추가합니다.
+2	Scripts/UI/SelectPanel 스크립트에 스프라이트 이름과 같은 함수를 추가합니다.
+3	함수에 업그레이드 할 내용을 추가하되, 수치는 GameManager 에서 조절하게 합니다.
+4	GameManager 스크립트에 설명을 추가합니다.
+	"스프라이트 이름_text_head" 과 "스프라이트 이름_text_body" 로 추가합니다.
