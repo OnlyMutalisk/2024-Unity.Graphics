@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class SG : Gun
 {
-    public override int catridge { get; set; } = GameManager.catridge_SG;
-    public override int catridge_max { get; set; } = GameManager.catridge_max_SG;
+    public override int cartridge { get; set; } = GameManager.cartridge_SG;
+    public override int cartridge_max { get; set; } = GameManager.cartridge_max_SG;
     public override float reloadTime { get; set; } = GameManager.reloadTime_SG;
     public override float damage { get; set; } = GameManager.damage_SG;
     public override float delay { get; set; } = GameManager.delay_SG;
@@ -15,10 +15,10 @@ public class SG : Gun
     {
         if (currentGun == this.GetType().Name)
         {
-            UI.catridge = catridge;
+            UI.Cartridge = cartridge;
 
             // 사격 감지, SG 는 추가 총알이 격발됩니다.
-            if (Input.GetButton("Fire1") && isCorShootOn == false && isCorReloadOn == false && catridge > 0)
+            if (Input.GetButton("Fire1") && isCorShootOn == false && isCorReloadOn == false && cartridge > 0)
             {
                 for (float f = -fireAngle / 2; f <= fireAngle / 2; f += fireAngle / extraBullet)
                 {

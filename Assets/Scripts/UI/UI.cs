@@ -12,10 +12,10 @@ public class UI : MonoBehaviour
     public Slider HP;
     public Slider EXP;
     public TextMeshProUGUI level;
-    public TextMeshProUGUI textCatridge;
+    public TextMeshProUGUI textCartridge;
     public TextMeshProUGUI textScore;
     public TextMeshProUGUI textHighScore;
-    public static int catridge;
+    public static int Cartridge;
     public static int highScore;
     public static int score;
 
@@ -42,7 +42,7 @@ public class UI : MonoBehaviour
     private void Update()
     {
         HP.value = Character.HP / GameManager.HP_char;
-        textCatridge.text = catridge.ToString();
+        textCartridge.text = Cartridge.ToString();
         textScore.text = score.ToString();
         highScore = PlayerPrefs.GetInt("HighScore");
         textHighScore.text = "High Score : " + highScore.ToString();

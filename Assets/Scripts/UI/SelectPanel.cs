@@ -71,27 +71,27 @@ public class SelectPanel : MonoBehaviour
     /// <summary>
     /// AR 의 탄창 수가 N 발 많아집니다.
     /// </summary>
-    public void Upgrade_AR_Catridge()
+    public void Upgrade_AR_Cartridge()
     {
-        ar.catridge_max += GameManager.Upgrade_AR_Catridge_add;
+        ar.cartridge_max += GameManager.Upgrade_AR_Cartridge_add;
         Time.timeScale = 1;
     }
 
     /// <summary>
     /// AR 의 탄창 수가 N 발 많아집니다.
     /// </summary>
-    public void Upgrade_SR_Catridge()
+    public void Upgrade_SR_Cartridge()
     {
-        sr.catridge_max += GameManager.Upgrade_SR_Catridge_add;
+        sr.cartridge_max += GameManager.Upgrade_SR_Cartridge_add;
         Time.timeScale = 1;
     }
 
     /// <summary>
     /// AR 의 탄창 수가 N 발 많아집니다.
     /// </summary>
-    public void Upgrade_SG_Catridge()
+    public void Upgrade_SG_Cartridge()
     {
-        sg.catridge_max += GameManager.Upgrade_SG_Catridge_add;
+        sg.cartridge_max += GameManager.Upgrade_SG_Cartridge_add;
         Time.timeScale = 1;
     }
 }
