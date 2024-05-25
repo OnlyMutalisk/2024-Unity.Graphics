@@ -33,24 +33,24 @@ public static class GameManager
 
     // AR 설정값입니다.
     public static float delay_AR = 0.22f;
-    public static int cartridge_AR = 30;
-    public static int cartridge_max_AR = 30;
+    public static int catridge_AR = 30;
+    public static int catridge_max_AR = 30;
     public static float reloadTime_AR = 2;
     public static float damage_AR = 1;
     public static float damageLossPerDistance_AR = 0.1f; // 거리 비례 데미지 민감도
 
     // SR 설정값입니다.
     public static float delay_SR = 1.5f;
-    public static int cartridge_SR = 7;
-    public static int cartridge_max_SR = 7;
+    public static int catridge_SR = 7;
+    public static int catridge_max_SR = 7;
     public static float reloadTime_SR = 2;
     public static float damage_SR = 5;
     public static float damageLossPerDistance_SR = 0.1f;
 
     // SG 설정값입니다.
     public static float delay_SG = 0.8f;
-    public static int cartridge_SG = 10;
-    public static int cartridge_max_SG = 10;
+    public static int catridge_SG = 10;
+    public static int catridge_max_SG = 10;
     public static float reloadTime_SG = 2;
     public static float damage_SG = 0.5f;
     public static float damageLossPerDistance_SG = 0.5f;
@@ -74,7 +74,7 @@ public static class GameManager
     public static float HP_spider = 10;
     public static float damage_spider = 10;
     public static int score_spider = 1;
-    public static int exp_spider = 5;
+    public static int exp_spider = 1;
 
     // Dog 설정값입니다.
     public static float attackDistance_dog = 7f;
@@ -82,7 +82,7 @@ public static class GameManager
     public static float HP_dog = 10;
     public static float damage_dog = 10;
     public static int score_dog = 2;
-    public static int exp_dog = 9;
+    public static int exp_dog = 2;
 
     #endregion
 
@@ -100,17 +100,17 @@ public static class GameManager
     public static string Upgrade_SG_Damage_text_body = "Damage 10% ++";
     public static float Upgrade_SG_Damage_multiplier = 1.1f;
 
-    public static string Upgrade_AR_Cartridge_text_head = "AR";
-    public static string Upgrade_AR_Cartridge_text_body = "Cartridge + 3";
-    public static int Upgrade_AR_Cartridge_add = 3;
+    public static string Upgrade_AR_Catridege_text_head = "AR";
+    public static string Upgrade_AR_Catridege_text_body = "Catridge + 3";
+    public static int Upgrade_AR_Catridge_add = 3;
 
-    public static string Upgrade_SR_Cartridge_text_head = "SR";
-    public static string Upgrade_SR_Cartridge_text_body = "Cartridge + 1";
-    public static int Upgrade_SR_Cartridge_add = 1;
+    public static string Upgrade_SR_Catridege_text_head = "SR";
+    public static string Upgrade_SR_Catridege_text_body = "Catridge + 1";
+    public static int Upgrade_SR_Catridge_add = 1;
 
-    public static string Upgrade_SG_Cartridge_text_head = "SG";
-    public static string Upgrade_SG_Cartridge_text_body = "Cartridge + 2";
-    public static int Upgrade_SG_Cartridge_add = 2;
+    public static string Upgrade_SG_Catridege_text_head = "SG";
+    public static string Upgrade_SG_Catridege_text_body = "Catridge + 2";
+    public static int Upgrade_SG_Catridge_add = 2;
 
     #endregion
 }

@@ -7,13 +7,13 @@ using UnityEngine.UIElements;
 public class Gun : MonoBehaviour
 {
     public static string currentGun = "AR";
-    public virtual int cartridge { get; set; }
-    public virtual int cartridge_max { get; set; }
+    public virtual int catridge { get; set; }
+    public virtual int catridge_max { get; set; }
     public virtual float reloadTime { get; set; }
     public virtual float damage { get; set; }
     public virtual float delay { get; set; }
     public GameObject bullet;
-    public GameObject CartridgeEffect;
+    public GameObject catridgeEffect;
     public GameObject fireEffect;
     protected bool isCorShootOn;
     protected bool isCorReloadOn;
@@ -64,13 +64,13 @@ public class Gun : MonoBehaviour
     public void Shoot()
     {
         Instantiate<GameObject>(bullet, pos.position, pos.rotation);
-        Instantiate<GameObject>(CartridgeEffect, pos.position, pos.rotation);
+        Instantiate<GameObject>(catridgeEffect, pos.position, pos.rotation);
         Instantiate<GameObject>(fireEffect, pos.position, pos.rotation);
 
-        cartridge--;
+        catridge--;
         audioSource.Play();
 
-        Debug.Log(currentGun + cartridge);
+        Debug.Log(currentGun + catridge);
     }
 
     public IEnumerator CorShoot()
@@ -91,7 +91,7 @@ public class Gun : MonoBehaviour
         Debug.Log("장전중..");
         audioSource.PlayOneShot(Resources.Load<AudioClip>("Sounds/Reload"));
         yield return new WaitForSeconds(reloadTime);
-        cartridge = cartridge_max;
+        catridge = catridge_max;
         isCorReloadOn = false;
         isCorShootOn = false;
     }
