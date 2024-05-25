@@ -5,11 +5,14 @@ using System.Reflection;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 using static UnityEngine.GraphicsBuffer;
 
 public class Mob : MonoBehaviour
 {
     public Animator anim;
+    public GameObject slider;
+    private Transform camera;
     private NavMeshAgent nav;
     private bool isCorOn = false;
     protected virtual float attackDistance { get; set; }
@@ -20,6 +23,7 @@ public class Mob : MonoBehaviour
     protected virtual int exp { get; set; }
     private AudioSource attackedSound;
     private AudioSource hitSound;
+    private float HP_max;
     private bool isAlive = true;
 
     private void Awake()
@@ -27,17 +31,24 @@ public class Mob : MonoBehaviour
         attackedSound = GetComponents<AudioSource>()[0];
         hitSound = GetComponents<AudioSource>()[1];
         hitSound.clip = Resources.Load<AudioClip>("Sounds/Hit");
+        camera = Camera.allCameras[0].transform;
         nav = GetComponent<NavMeshAgent>();
         nav.stoppingDistance = attackDistance;
         nav.speed = speed;
+        HP_max = HP;
     }
-
 
     private void Update()
     {
-        if (isAlive)
-            nav.SetDestination(CharAnimation.trans.position);
+        if (isAlive) { nav.SetDestination(CharAnimation.trans.position); }
         StartCoroutine(CorMobAction());
+
+        // HP 시각화
+        if (slider != null)
+        {
+            slider.GetComponent<Slider>().value = HP / HP_max;
+            slider.transform.LookAt(slider.transform.position + camera.rotation * Vector3.forward, camera.rotation * Vector3.up);
+        }
     }
 
     /// <summary>
@@ -61,6 +72,7 @@ public class Mob : MonoBehaviour
                 Spawner.population_current--;
                 UI.score += score;
                 Character.exp += this.exp;
+                Destroy(slider);
                 yield return new WaitForSeconds(GetAnimationClipLength("Death") + 1);
                 Destroy(gameObject);
             }
