@@ -32,7 +32,8 @@ public static class GameManager
     #region Guns
 
     // AR 설정값입니다.
-    public static float delay_AR = 0.22f;
+    //public static float delay_AR = 0.22f;
+    public static float delay_AR = 0.04f;
     public static int cartridge_AR = 30;
     public static int cartridge_max_AR = 30;
     public static float reloadTime_AR = 2;
