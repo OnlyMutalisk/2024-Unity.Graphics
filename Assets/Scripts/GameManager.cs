@@ -8,8 +8,6 @@ using UnityEngine.UI;
 
 public static class GameManager
 {
-
-
     #region Character
 
     // 캐릭터 설정값입니다.
@@ -66,8 +64,11 @@ public static class GameManager
     // 공격 범위 옵션은 각 프리팹의 SphereCollider 컴포넌트의 Radius 로 조절합니다.
 
     // Spawner 설정값입니다.
-    public static float delay_spawner = 3f;
-    public static int population_limit = 1;
+    public static float delay_spawner = 0.1f;
+    public static int population_limit = 200;
+    public static float layLength = 50;
+    public static float obstacleHeightLimit = 5;
+    public static float radius = 200;
 
     // Spider 설정값입니다.
     public static float attackDistance_spider = 3f;
