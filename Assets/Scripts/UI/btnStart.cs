@@ -7,6 +7,6 @@ public class btnStart : MonoBehaviour
 {
     public void LoadScene()
     {
-        SceneManager.LoadScene("Game");
+        SceneManager.LoadScene("Play");
     }
 }
