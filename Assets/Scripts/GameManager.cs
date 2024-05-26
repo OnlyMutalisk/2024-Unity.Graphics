@@ -14,13 +14,33 @@ public static class GameManager
     public static float sensitive = 100f; // 회전 민감도
     public static float speed_char = 10f;
     public static float jumpPower_char = 6f; // 로그 스케일로 점프력이 강해집니다.
-    public static float HP_char = 100000;
+    public static float HP_char = 100;
 
     // 레벨업 소요 경험치 입니다.
     public static List<float> exp_max = new List<float>
     {
         10,
         20,
+        30,
+        30,
+        30,
+        30,
+        30,
+        30,
+        30,
+        30,
+        30,
+        30,
+        30,
+        30,
+        30,
+        30,
+        30,
+        30,
+        30,
+        30,
+        30,
+        30,
         30,
         9999999999999
     };
@@ -30,7 +50,7 @@ public static class GameManager
     #region Guns
 
     // AR 설정값입니다.
-    public static float delay_AR = 0.04f;
+    public static float delay_AR = 0.08f;
     public static int cartridge_AR = 30;
     public static int cartridge_max_AR = 30;
     public static float reloadTime_AR = 1.5f;

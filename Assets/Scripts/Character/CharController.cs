@@ -1,7 +1,9 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
+using static UnityEditor.PlayerSettings;
 
 public class CharController : MonoBehaviour
 {
@@ -16,6 +18,7 @@ public class CharController : MonoBehaviour
     public CharacterController character;
     public Rigidbody rigid;
     public GameObject cam;
+    public GameObject gun;
 
     private void Start()
     {
@@ -59,7 +62,7 @@ public class CharController : MonoBehaviour
 
             // 점프의 정점에서, 중력을 조금씩 늘리며 내려옵니다.
             if (gravity < 9.8f) { gravity += 0.1f; }
-            if(gravity > jumpPower * 1.3) { isTop = false; }
+            if (gravity > jumpPower * 1.3) { isTop = false; }
         }
 
         character.Move(movement * Time.deltaTime);
@@ -70,7 +73,67 @@ public class CharController : MonoBehaviour
     /// </summary>
     private void CameraRotation(GameObject cam, float rotX, float rotY)
     {
-        transform.Rotate(0, rotX * Time.deltaTime, 0);
-        // cam.transform.Rotate (-rotY * Time.deltaTime, 0, 0);
+        if (isCorOn == false) { transform.Rotate(0, rotX * Time.deltaTime, 0); } // 캐릭터 좌우 회전, 항상 On-line
+
+        Vector3 camPos = new Vector3();
+        Vector3 camAngle = new Vector3();
+        IEnumerator cor;
+
+        // 우클릭 시작 시
+        if (Input.GetKeyDown(KeyCode.Mouse1))
+        {
+            camPos = new Vector3(0, 2.4f, 0.4f);
+            camAngle = new Vector3(20, cam.transform.eulerAngles.y, cam.transform.eulerAngles.z);
+
+            cor = CorMoveCam(camPos, camAngle, true);
+            StopCoroutine(cor);
+            StartCoroutine(cor);
+        }
+        // 우클릭 중
+        if (Input.GetKey(KeyCode.Mouse1) && isCorOn == false)
+        {
+            gun.transform.Rotate(-rotY * Time.deltaTime, 0, 0); // 총 상하 회전
+            cam.transform.Rotate(-rotY * Time.deltaTime, 0, 0); // 카메라 상하 회전
+        }
+        // 우클릭 종료 시
+        if (Input.GetKeyUp(KeyCode.Mouse1))
+        {
+            camPos = new Vector3(0, 8, -3.5f);
+            camAngle = new Vector3(60, cam.transform.eulerAngles.y, cam.transform.eulerAngles.z);
+
+            cor = CorMoveCam(camPos, camAngle, false);
+            StopCoroutine(cor);
+            StartCoroutine(cor);
+        }
+    }
+
+    private float duration = 0.2f;
+    private bool isCorOn = false;
+
+    private IEnumerator CorMoveCam(Vector3 camPos, Vector3 camAngle, bool isStart)
+    {
+        isCorOn = true;
+
+        Vector3 initialPosition = cam.transform.localPosition;
+        Vector3 initialEulerAngles = cam.transform.eulerAngles;
+
+        float elapsedTime = 0f;
+
+        while (elapsedTime < duration)
+        {
+            cam.transform.localPosition = Vector3.Lerp(initialPosition, camPos, elapsedTime / duration);
+            cam.transform.eulerAngles = Vector3.Lerp(initialEulerAngles, camAngle, elapsedTime / duration);
+
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+
+        cam.transform.localPosition = camPos;
+
+        if (isStart == true) { cam.transform.localRotation = Quaternion.Euler(new Vector3(20, 0, 0)); }
+        if (isStart == false) { cam.transform.localRotation = Quaternion.Euler(new Vector3(60, 0, 0)); }
+        gun.transform.localRotation = Quaternion.Euler(new Vector3(0, 0, 0));
+
+        isCorOn = false;
     }
 }

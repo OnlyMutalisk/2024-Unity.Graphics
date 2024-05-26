@@ -63,8 +63,10 @@ public class Gun : MonoBehaviour
     /// </summary>
     public void Shoot()
     {
+        Vector3 cartridgePos = new Vector3(pos.position.x, pos.position.y, pos.position.z - 0.5f);
+
         Instantiate<GameObject>(bullet, pos.position, pos.rotation);
-        Instantiate<GameObject>(cartridgeEffect, pos.position, pos.rotation);
+        Instantiate<GameObject>(cartridgeEffect, cartridgePos, pos.rotation);
         Instantiate<GameObject>(fireEffect, pos.position, pos.rotation);
 
         cartridge--;

@@ -5,6 +5,7 @@ using System.Reflection;
 using TMPro;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class UI : MonoBehaviour
@@ -15,6 +16,7 @@ public class UI : MonoBehaviour
     public TextMeshProUGUI textCartridge;
     public TextMeshProUGUI textScore;
     public TextMeshProUGUI textHighScore;
+    public GameObject crosshead;
     public static int cartridge;
     public static int highScore;
     public static int score;
@@ -26,7 +28,7 @@ public class UI : MonoBehaviour
     public Image SR;
     public Sprite SR_On;
     public Sprite SR_Off;
-    
+
     public Image SG;
     public Sprite SG_On;
     public Sprite SG_Off;
@@ -49,6 +51,8 @@ public class UI : MonoBehaviour
         level.text = "Level : " + (Character.level + 1).ToString();
         EXP.value = Character.exp / GameManager.exp_max[Character.level];
         ActiveGunImage();
+        if (Input.GetKey(KeyCode.Mouse1) == true) { crosshead.SetActive(true); }
+        else { crosshead.SetActive(false); }
     }
 
     /// <summary>
@@ -69,7 +73,7 @@ public class UI : MonoBehaviour
                 AR.sprite = AR_Off;
                 SG.sprite = SG_Off;
                 break;
-            
+
             case "SG":
                 SG.sprite = SG_On;
                 SR.sprite = SR_Off;
@@ -91,5 +95,10 @@ public class UI : MonoBehaviour
 
         if (MenuPanel.active == true) { MenuPanel.SetActive(false); }
         else { MenuPanel.SetActive(true); }
+    }
+
+    public void btnMain()
+    {
+        SceneManager.LoadScene("Main");
     }
 }

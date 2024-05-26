@@ -1,13 +1,9 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
 using System.Reflection;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
-using static UnityEditor.PlayerSettings;
-using static UnityEngine.GraphicsBuffer;
 
 public class Mob : MonoBehaviour
 {

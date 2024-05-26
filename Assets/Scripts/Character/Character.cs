@@ -33,6 +33,7 @@ public class Character : MonoBehaviour
         isDeath = true;
         deathPanel.SetActive(true);
         UpdateHighScore();
+        Destroy(gameObject);
     }
 
     private void LevelUp()
