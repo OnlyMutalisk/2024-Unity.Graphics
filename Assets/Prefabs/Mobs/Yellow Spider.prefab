@@ -477,8 +477,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2082831617555776721}
   - component: {fileID: -8769725000715098481}
-  - component: {fileID: -3498778803901391779}
   - component: {fileID: 7788752970164953222}
+  - component: {fileID: 8649535481192061540}
   - component: {fileID: -5090217899691709890}
   - component: {fileID: 1323453613016155511}
   - component: {fileID: -3850327497763575934}
@@ -534,20 +534,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &-3498778803901391779
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1705849404070370923}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f6c4653f815f64b47b4725ecb4400533, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  anim: {fileID: -8769725000715098481}
-  slider: {fileID: 547876667098044457}
 --- !u!195 &7788752970164953222
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -570,6 +556,20 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &8649535481192061540
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1705849404070370923}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac6c6b8567be7014b987212c4a8432c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anim: {fileID: -8769725000715098481}
+  slider: {fileID: 547876667098044457}
 --- !u!135 &-5090217899691709890
 SphereCollider:
   m_ObjectHideFlags: 0

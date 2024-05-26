@@ -30,13 +30,12 @@ public static class GameManager
     #region Guns
 
     // AR 설정값입니다.
-    //public static float delay_AR = 0.22f;
     public static float delay_AR = 0.04f;
     public static int cartridge_AR = 30;
     public static int cartridge_max_AR = 30;
-    public static float reloadTime_AR = 2;
+    public static float reloadTime_AR = 1.5f;
     public static float damage_AR = 1;
-    public static float damageLossPerDistance_AR = 0.1f; // 거리 비례 데미지 민감도
+    public static float damageLossPerDistance_AR = 0.05f; // 거리 비례 데미지 민감도
 
     // SR 설정값입니다.
     public static float delay_SR = 1.5f;
@@ -44,15 +43,15 @@ public static class GameManager
     public static int cartridge_max_SR = 7;
     public static float reloadTime_SR = 2;
     public static float damage_SR = 5;
-    public static float damageLossPerDistance_SR = 0.1f;
+    public static float damageLossPerDistance_SR = 0f;
 
     // SG 설정값입니다.
     public static float delay_SG = 0.8f;
     public static int cartridge_SG = 10;
     public static int cartridge_max_SG = 10;
-    public static float reloadTime_SG = 2;
-    public static float damage_SG = 0.5f;
-    public static float damageLossPerDistance_SG = 0.5f;
+    public static float reloadTime_SG = 2.5f;
+    public static float damage_SG = 1;
+    public static float damageLossPerDistance_SG = 0.7f;
     public static int extraBullet_SG = 40; // 산탄 수
     public static float fireAngle_SG = 40; // 산탄 각
 
@@ -64,7 +63,10 @@ public static class GameManager
     // 공격 범위 옵션은 각 프리팹의 SphereCollider 컴포넌트의 Radius 로 조절합니다.
 
     // Spawner 설정값입니다.
-    public static float delay_spawner = 0.1f;
+    public static float delay_spawner = 3;
+    public static float delay_upgardeSpawner = 10;
+    public static float delay_minus = 0.1f; // delay_upgardeSpawner 마다 delay_minus 만큼 Spawn 주기 감소
+    public static float delay_spawnLimit = 0.5f; // delay_upgardeSpawner 마다 delay_minus 만큼 Spawn 주기 감소
     public static int population_limit = 200;
     public static float layLength = 50;
     public static float obstacleHeightLimit = 5;
@@ -72,16 +74,24 @@ public static class GameManager
 
     // Spider 설정값입니다.
     public static float attackDistance_spider = 3;
-    public static float speed_spider = 7;
-    public static float HP_spider = 10;
+    public static float speed_spider = 4;
+    public static float HP_spider = 50;
     public static float damage_spider = 10;
     public static int score_spider = 1;
     public static int exp_spider = 1;
 
+    // Spider_Y 설정값입니다.
+    public static float attackDistance_spider_Y = 3;
+    public static float speed_spider_Y = 6;
+    public static float HP_spider_Y = 30;
+    public static float damage_spider_Y = 20;
+    public static int score_spider_Y = 2;
+    public static int exp_spider_Y = 2;
+
     // Dog 설정값입니다.
     public static float attackDistance_dog = 7;
     public static float speed_dog = 12;
-    public static float HP_dog = 10;
+    public static float HP_dog = 11;
     public static float damage_dog = 10;
     public static int score_dog = 2;
     public static int exp_dog = 2;

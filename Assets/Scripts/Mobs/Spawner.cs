@@ -10,6 +10,9 @@ public class Spawner : MonoBehaviour
     public GameObject[] Mobs;
     private bool isCorSpawnerOn = false;
     private float delay = GameManager.delay_spawner;
+    private float upgradeDelay = GameManager.delay_upgardeSpawner;
+    private float delay_minus = GameManager.delay_minus;
+    private float delay_spawnLimit = GameManager.delay_spawnLimit;
     private int population_limit = GameManager.population_limit;
     private Transform center;
     private Terrain terrain;
@@ -24,6 +27,8 @@ public class Spawner : MonoBehaviour
         terrain = Terrain.activeTerrain;
         population_current = 0;
         center = gameObject.GetComponent<Transform>();
+
+        StartCoroutine(CorUpgradeSpawner());
     }
 
     private void Update()
@@ -31,6 +36,23 @@ public class Spawner : MonoBehaviour
         if (population_current < population_limit && isCorSpawnerOn == false)
         {
             StartCoroutine(CorSpawn());
+        }
+    }
+
+    /// <summary>
+    /// 일정 시간마다 몬스터 스폰 주기를 단축합니다.
+    /// </summary>
+    public IEnumerator CorUpgradeSpawner()
+    {
+        while(true)
+        {
+            if (delay > delay_spawnLimit)
+            {
+                delay -= delay_minus;
+                if (delay < delay_spawnLimit) { delay = delay_spawnLimit; }
+            }
+
+            yield return new WaitForSeconds(upgradeDelay);
         }
     }
 
