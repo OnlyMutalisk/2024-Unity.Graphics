@@ -14,7 +14,7 @@ public static class GameManager
     public static float sensitive = 100f; // 회전 민감도
     public static float speed_char = 10f;
     public static float jumpPower_char = 6f; // 로그 스케일로 점프력이 강해집니다.
-    public static float HP_char = 100;
+    public static float HP_char = 100000;
 
     // 레벨업 소요 경험치 입니다.
     public static List<float> exp_max = new List<float>
@@ -71,20 +71,20 @@ public static class GameManager
     public static float radius = 200;
 
     // Spider 설정값입니다.
-    public static float attackDistance_spider = 3f;
-    public static float speed_spider = 3f;
+    public static float attackDistance_spider = 3;
+    public static float speed_spider = 7;
     public static float HP_spider = 10;
     public static float damage_spider = 10;
     public static int score_spider = 1;
-    public static int exp_spider = 5;
+    public static int exp_spider = 1;
 
     // Dog 설정값입니다.
-    public static float attackDistance_dog = 7f;
-    public static float speed_dog = 10f;
+    public static float attackDistance_dog = 7;
+    public static float speed_dog = 12;
     public static float HP_dog = 10;
     public static float damage_dog = 10;
     public static int score_dog = 2;
-    public static int exp_dog = 5;
+    public static int exp_dog = 2;
 
     #endregion
 

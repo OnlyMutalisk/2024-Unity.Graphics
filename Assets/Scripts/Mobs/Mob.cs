@@ -6,6 +6,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
+using static UnityEditor.PlayerSettings;
 using static UnityEngine.GraphicsBuffer;
 
 public class Mob : MonoBehaviour
@@ -41,13 +42,20 @@ public class Mob : MonoBehaviour
     private void Update()
     {
         if (isAlive) { nav.SetDestination(CharAnimation.trans.position); }
+        // if (nav.hasPath == false) { Debug.Log(gameObject.name + " 의 경로가 없습니다."); }
         StartCoroutine(CorMobAction());
 
         // HP 시각화
         if (slider != null)
         {
-            slider.GetComponent<Slider>().value = HP / HP_max;
-            slider.transform.LookAt(slider.transform.position + camera.rotation * Vector3.forward, camera.rotation * Vector3.up);
+            if (HP == HP_max) { slider.SetActive(false); }
+            else
+            {
+                slider.SetActive(true);
+                slider.GetComponent<Slider>().value = HP / HP_max;
+                slider.transform.LookAt(slider.transform.position + camera.rotation * Vector3.forward, camera.rotation * Vector3.up);
+            }
+
         }
     }
 
