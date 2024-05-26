@@ -117,5 +117,6 @@ public class SelectPanel : MonoBehaviour
     private void OnDisable()
     {
         rndList.Clear();
+        Cursor.lockState = CursorLockMode.Locked;
     }
 }

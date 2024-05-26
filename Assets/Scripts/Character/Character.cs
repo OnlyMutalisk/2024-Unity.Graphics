@@ -30,6 +30,7 @@ public class Character : MonoBehaviour
 
     private void Death()
     {
+        Cursor.lockState = CursorLockMode.None;
         isDeath = true;
         deathPanel.SetActive(true);
         UpdateHighScore();
@@ -38,6 +39,7 @@ public class Character : MonoBehaviour
 
     private void LevelUp()
     {
+        Cursor.lockState = CursorLockMode.None;
         exp = 0;
         level++;
         upgradePanel.SetActive(true);

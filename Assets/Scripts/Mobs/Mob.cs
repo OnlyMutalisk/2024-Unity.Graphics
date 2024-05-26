@@ -152,11 +152,12 @@ public class Mob : MonoBehaviour
     /// </summary>
     protected void AnimationEvent_Attack()
     {
-        if (nav.remainingDistance < attackDistance)
+        if (nav.remainingDistance < attackDistance && Character.HP > 0)
         {
             System.Random rand = new System.Random();
             int index = rand.Next(0, 7);
             attackedSound.clip = Resources.Load<AudioClip>("Sounds/Attacked" + index);
+            attackedSound.volume = 0.4f;
             attackedSound.Play();
 
             Character.HP = Character.HP - damage;

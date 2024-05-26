@@ -12,6 +12,7 @@ public class CharAnimation : MonoBehaviour
 
     private void Start()
     {
+        walkSound.volume = 1.0f;
         walkSound.clip = Resources.Load<AudioClip>("Sounds/Walk");
     }
 

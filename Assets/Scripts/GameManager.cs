@@ -13,7 +13,7 @@ public static class GameManager
     // 캐릭터 설정값입니다.
     public static float sensitive = 100f; // 회전 민감도
     public static float speed_char = 10f;
-    public static float jumpPower_char = 6f; // 로그 스케일로 점프력이 강해집니다.
+    public static float jumpPower_char = 6.5f; // 로그 스케일로 점프력이 강해집니다.
     public static float HP_char = 100;
 
     // 레벨업 소요 경험치 입니다.
@@ -142,6 +142,12 @@ public static class GameManager
     public static string Upgrade_SG_Cartridge_text_head = "SG";
     public static string Upgrade_SG_Cartridge_text_body = "Cartridge + 2";
     public static int Upgrade_SG_Cartridge_add = 2;
+
+    #endregion
+
+    #region Camera
+
+    public static float zoomDuration = 0.2f;
 
     #endregion
 }

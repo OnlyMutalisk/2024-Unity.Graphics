@@ -90,11 +90,17 @@ public class UI : MonoBehaviour
 
     public void btnMenu()
     {
-        if (Time.timeScale == 1) { Time.timeScale = 0; }
-        else { Time.timeScale = 1; }
-
-        if (MenuPanel.active == true) { MenuPanel.SetActive(false); }
-        else { MenuPanel.SetActive(true); }
+        if (MenuPanel.active == true)
+        {
+            Time.timeScale = 1;
+            Cursor.lockState = CursorLockMode.Locked;
+            MenuPanel.SetActive(false);
+        }
+        else
+        {
+            Time.timeScale = 0;
+            MenuPanel.SetActive(true);
+        }
     }
 
     public void btnMain()
